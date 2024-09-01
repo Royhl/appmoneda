@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "b68109b2-53bd-4ea5-bc0e-c5797633d5e2",
+		"name": "Desarrollo API mi destino",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30061835"
+	},
+	"item": [
+		{
+			"name": "cambio de moneda",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "clima",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

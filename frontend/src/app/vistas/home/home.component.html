@@ -1,0 +1,73 @@
+<div class="container mt-5">
+    
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-lg-4"></div>
+        <div class="col-xs-12 col-md-4 col-lg-4">
+            <h1>Conversion de moneda</h1>
+            <div class="form-group">
+                <label>Selecione la ciudad</label>
+                <select class="form-select" aria-label="Default select example" (change)="consultarMonedaCiudad()" [(ngModel)] = "nombreCiudad" > <!-- el ngModel para capturar los valores de un campo -->
+                    <option value="{{ciu.nombre}}"  *ngFor="let ciu of listaCiudad"  >{{ciu.nombre|uppercase}}</option>
+                  </select>
+            </div>
+            <br>
+           <div class="form-group" *ngIf="mostrardetalle">
+            <label>Simbolo, nombre, codigo de la moneda</label>
+            <div class="input-group mb-3" >
+                <input type="text" readonly class="form-control" aria-label="Amount (to the nearest dollar)" value="{{resMoneda.simbolo+' - '+resMoneda.nombre_moneda+' -  '+resMoneda.codigo_moneda}}">
+              
+              </div>
+           </div>
+           <div class="form-group">
+            <div class="mb-3" *ngIf="muestraclima">
+                <label for="exampleFormControlTextarea1" class="form-label">Clima de la ciudad elegida</label>
+                <input type="text" readonly class="form-control" aria-label="Amount (to the nearest dollar)" value="{{datosClima['current'].temp_c+' °'}}">
+                <br>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Destalles del clima</label>
+                </div>
+                <input type="text" readonly class="form-control" aria-label="Amount (to the nearest dollar)" value="{{' Region: '+datosClima['location'].region+' latitud: '+datosClima['location'].lat+' Longitud: '+datosClima['location'].lon}}">
+              </div>
+           </div>
+           <div class="form-group"  *ngIf="muestraclima">
+            <label>Digite el valor en pesos colombianos</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <br/>
+                <input type="text"  class="form-control" aria-label="Amount (to the nearest dollar)" value="" [(ngModel)] = "dinero">
+              </div>
+           </div>
+           <div class="form-group" *ngIf="mostrarconversion">
+            <div class="input-group mb-3" >
+                <label>Resultado de conversion en {{nombreCiudad}} </label>
+                <span class="input-group-text">{{resMoneda.simbolo}}</span>
+                <input type="text" readonly class="form-control" aria-label="Amount (to the nearest dollar)" value="{{valorconversion}}" >
+                <label> Tasa de cambio aplicada {{nombreCiudad}}   </label>
+                <input type="text" readonly class="form-control" aria-label="Amount (to the nearest dollar)" value="{{tasa}}" >
+                
+              </div>
+              
+           </div>
+           <div class="form-group" *ngIf="mostrardetalle">
+            <button (click)="convertirMoneda()" class="btn btn-success">Convertir</button></div>
+        </div>
+        <div class="col-xs-12 col-md-4 col-lg-4"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
