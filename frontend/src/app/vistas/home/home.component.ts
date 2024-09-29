@@ -45,7 +45,6 @@ export class HomeComponent {
 
   consultarCiudades(){
     this.servicios.consultarCiudades().then(res =>{
-        console.log(res);
         this.listaCiudad = res;
     }).catch(error=>{
       console.error(error);
@@ -69,7 +68,7 @@ export class HomeComponent {
           if(res){
             this.resMoneda = res;
             this.mostrardetalle = true;
-            this.consultarClima(this.nombreCiudad);
+            this.consultarClima(this.nombreCiudad); // se hace el llamado una vez se ejecute el select para que muestre el clima
           }
       }).catch(error =>{
       console.error(error);
@@ -91,7 +90,7 @@ export class HomeComponent {
 
     this.servicios.convertirMoneda(this.resMoneda.codigo_moneda).then(res=>{
      
-      let claves = Object.keys( res.result); // claves = ["nombre", "color", "macho", "edad"]
+      let claves = Object.keys( res.result); 
         for(let i=0; i< claves.length; i++){
         let clave = claves[i];
         this.tasa =  res.result[clave];
